@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турбо-курс программирования на Pascal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #00FF00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #00FF00;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #00FF00;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #00FFFF;
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #00FF00;
+            font-size: 14px;
+        }
+
+        .section {
+            border: 1px solid #00FF00;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        .section h2 {
+            color: #00FFFF;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #00FF00;
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 5px;
+        }
+
+        .section li:before {
+            content: "> ";
+            color: #00FFFF;
+        }
+
+        .highlight {
+            color: #FFFF00;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #00FF00;
+            color: #000000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #00FFFF;
+        }
+
+        .footer {
+            text-align: center;
+            border-top: 2px solid #00FF00;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #00FFFF;
+        }
+
+        .ascii-art {
+            color: #00FFFF;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .dos-box {
+            border: 1px solid #00FF00;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #001100;
+        }
+
+        .dos-box .dos-title {
+            color: #00FFFF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .warning {
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #00FF00;
+            font-weight: bold;
+        }
+
+        .info {
+            color: #00FFFF;
+        }
+
+        .price {
+            color: #FFFF00;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .small {
+            font-size: 12px;
+            color: #888888;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .menu {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu a {
+            color: #00FFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .menu a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            color: #00FF00;
+            margin: 10px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #00FF00;
+            padding: 2px 6px;
+            margin: 2px;
+            font-size: 12px;
+        }
+
+        .tag-hot {
+            border-color: #FF0000;
+            color: #FF0000;
+        }
+
+        .tag-new {
+            border-color: #FFFF00;
+            color: #FFFF00;
+        }
+
+        .tag-turbo {
+            border-color: #00FFFF;
+            color: #00FFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <div class="ascii-art">
+                ╔══════════════════════════════════════════════════════════════╗
+                ║                                                              ║
+                ║   ████████╗██╗   ██╗██████╗ ██████╗  ██████╗               ║
+                ║   ╚══██╔══╝██║   ██║██╔══██╗██╔══██╗██╔═══██╗              ║
+                ║      ██║   ██║   ██║██████╔╝██████╔╝██║   ██║              ║
+                ║      ██║   ██║   ██║██╔══██╗██╔══██╗██║   ██║              ║
+                ║      ██║   ╚██████╔╝██║  ██║██████╔╝╚██████╔╝              ║
+                ║      ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝               ║
+                ║                                                              ║
+                ║           К У Р С   П Р О Г Р А М М И Р О В А Н И Я        ║
+                ║                                                              ║
+                ║                      н а   P a s c a l                       ║
+                ║                                                              ║
+                ╚══════════════════════════════════════════════════════════════╝
+            </div>
+            <h1>Турбо-курс программирования на Pascal</h1>
+            <h2>Научитесь программировать за 30 дней — и создавайте программы, которые работают на любом PC!</h2>
+            <p>Компьютерный клуб "Прогресс" приглашает всех желающих освоить язык программирования, на котором учат профессионалов. С Turbo Pascal вы получите инструмент, который используют разработчики по всему миру.</p>
+            <div class="divider">════════════════════════════════════════</div>
+            <p class="highlight">>>> ЗАПИСАТЬСЯ НА КУРС <<<</p>
+            <div class="divider">════════════════════════════════════════</div>
+        </div>
+
+        <!-- Меню -->
+        <div class="menu">
+            <a href="#about">[1] О курсе</a>
+            <a href="#pascal">[2] Что такое Pascal</a>
+            <a href="#era">[3] Эпоха Turbo Pascal</a>
+            <a href="#program">[4] Программа</a>
+            <a href="#contact">[5] Запись</a>
+        </div>
+
+        <!-- Блок 1: О курсе -->
+        <div class="section" id="about">
+            <h2>[1] О курсе</h2>
+            <p>Компьютерный клуб <span class="highlight">"Прогресс"</span> представляет уникальную возможность освоить язык программирования Pascal за 30 дней. Наш курс предназначен для студентов технических вузов, инженеров, желающих автоматизировать расчёты, любителей, купивших первый персональный компьютер, и школьников из компьютерных кружков.</p>
+            <p>Главное обещание курса: <span class="info">"Pascal — это язык, на котором учат программировать профессионалов. С Turbo Pascal вы получите инструмент, который используют разработчики по всему миру."</span></p>
+            <p>Вы научитесь писать программы для MS-DOS, которые работают на любом IBM PC. Это первый шаг в карьеру программиста.</p>
+            <div class="dos-box">
+                <div class="dos-title">>>> ПРЕИМУЩЕСТВА КУРСА:</div>
+                <ul>
+                    <li>Обучение с нуля — не требуется опыт программирования</li>
+                    <li>Практические задания на каждом занятии</li>
+                    <li>Методическое пособие и дискета с примерами программ</li>
+                    <li>Индивидуальный подход к каждому ученику</li>
+                    <li>Сертификат компьютерного клуба "Прогресс"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок 2: Что такое Pascal -->
+        <div class="section" id="pascal">
+            <h2>[2] Что такое Pascal</h2>
+            <p><span class="highlight">Pascal</span> — это язык программирования, созданный <span class="info">Никлаусом Виртом</span> в конце 1960-х годов в швейцарском ETH Zürich. Он был разработан для обучения структурному программированию — подходу, при котором код пишется без бездумного использования команды GOTO, а строится из понятных блоков: последовательностей, ветвлений и циклов.</p>
+            <p>К середине 1970-х годов Pascal уже широко распространился в университетах Европы и США. Он предложил свежий взгляд на программирование в эпоху, когда FORTRAN считался устаревшим, COBOL был ориентирован на бизнес-задачи, а ALGOL 60 оказался слишком академичным.</p>
+            <p>Настоящая революция произошла в <span class="highlight">1983 году</span>, когда компания <span class="info">Borland</span> выпустила <span class="highlight">Turbo Pascal 1.0</span>. Этот продукт изменил всё: вместо минут на компиляцию — секунды, вместо отдельных программ — всё в одном пакете.</p>
+            <div class="dos-box">
+                <div class="dos-title">>>> КЛЮЧЕВЫЕ ВЕХИ:</div>
+                <ul>
+                    <li><span class="info">1968–1970</span> — создание языка Никлаусом Виртом в ETH Zürich</li>
+                    <li><span class="info">1975</span> — широкое распространение в университетах</li>
+                    <li><span class="info">1983</span> — выход Turbo Pascal 1.0 от Borland</li>
+                    <li><span class="info">1986</span> — Turbo Pascal становится стандартом де-факто для MS-DOS</li>
+                    <li><span class="info">1989</span> — появление объектных расширений</li>
+                    <li><span class="info">1995</span> — выход Delphi 1.0 для Windows</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок 3: Эпоха Turbo Pascal -->
+        <div class="section" id="era">
+            <h2>[3] Эпоха Turbo Pascal</h2>
+            <p>Представьте: <span class="highlight">1985 год</span>. У вас на столе стоит компьютер <span class="info">IBM PC XT</span> с монохромным монитором. В дисковод вставлена дискета 5.25 дюйма с Turbo Pascal. Вы загружаете программу, и через несколько секунд уже пишете свой первый код.</p>
+            <p>Компьютерные журналы публикуют листинги программ, которые можно перепечатать и запустить на своём компьютере. Программирование становится доступным не только профессионалам, но и любителям.</p>
+            <div class="dos-box">
+                <div class="dos-title">>>> ТЕХНОЛОГИЧЕСКАЯ СРЕДА:</div>
+                <ul>
+                    <li>Устройства: IBM PC, XT, AT; Apple II; Commodore 64</li>
+                    <li>Операционная система: MS-DOS</li>
+                    <li>Носители: дискеты 5.25" и 3.5"</li>
+                    <li>Память: 640 КБ (достаточно для любых задач!)</li>
+                    <li>Мониторы: монохромные (зелёные/янтарные) или CGA</li>
+                </ul>
+            </div>
+            <p class="highlight">640 килобайт памяти достаточно для работы — и для вашего будущего в программировании!</p>
+            <p class="small">* Это отсылка к известной фразе о том, что 640 КБ достаточно для любых задач, которая звучала убедительно в эпоху, когда компьютеры имели мало памяти, но сегодня вызывает улыбку.</p>
+        </div>
+
+        <!-- Блок 4: Программа курса -->
+        <div class="section" id="program">
+            <h2>[4] Программа курса</h2>
+            <p>Курс длится <span class="highlight">30 дней</span> и разбит на четыре недели. Каждая неделя посвящена определённой теме и включает теоретические занятия и практические задания.</p>
+            <div class="dos-box">
+                <div class="dos-title">>>> ПЕРВАЯ НЕДЕЛЯ:</div>
+                <p>Введение в программирование и Turbo Pascal. Вы научитесь писать простые программы, работать с переменными и вводом-выводом данных.</p>
+            </div>
+            <div class="dos-box">
+                <div class="dos-title">>>> ВТОРАЯ НЕДЕЛЯ:</div>
+                <p>Структурное программирование. Вы изучите ветвления, циклы и процедуры.</p>
+            </div>
+            <div class="dos-box">
+                <div class="dos-title">>>> ТРЕТЬЯ НЕДЕЛЯ:</div>
+                <p>Работа с данными. Вы научитесь использовать массивы, записи и файлы.</p>
+            </div>
+            <div class="dos-box">
+                <div class="dos-title">>>> ЧЕТВЁРТАЯ НЕДЕЛЯ:</div>
+                <p>Создание собственного проекта. Вы разработаете программу, которую сможете забрать с собой на дискете.</p>
+            </div>
+            <p>Занятия проходят два раза в неделю по два часа. Каждый ученик получает методическое пособие и дискету с примерами программ.</p>
+        </div>
+
+        <!-- Блок 5: Запись на курс -->
+        <div class="section" id="contact">
+            <h2>[5] Запись на курс</h2>
+            <p>Не откладывайте своё будущее. Запишитесь на курсы сегодня — и через тридцать дней вы сможете называть себя программистом.</p>
+            <div class="dos-box">
+                <div class="dos-title">>>> КОНТАКТЫ:</div>
+                <p>Компьютерный клуб <span class="highlight">"Прогресс"</span></p>
+                <p>Адрес: ул. Программистов, д. 10</p>
+                <p>Телефон для справок: <span class="info">(095) 123-45-67</span></p>
+                <p>Часы работы: понедельник-пятница с 10:00 до 18:00</p>
+                <p>Занятия начинаются: <span class="highlight">1 октября</span></p>
+                <p class="warning">Количество мест ограничено!</p>
+            </div>
+            <p class="center"><span class="price">Стоимость курса: 49 долларов 95 центов</span></p>
+            <p class="center"><span class="highlight">>>> ЗАПИСАТЬСЯ НА КУРС <<<</span></p>
+            <p class="center"><span class="info">Ваше будущее начинается здесь.</span></p>
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <div class="divider">════════════════════════════════════════</div>
+            <p>© 1985 Компьютерный клуб "Прогресс"</p>
+            <p class="small">Pascal — артефакт эпохи. Вариант 9.</p>
+            <p class="small">Автор: Карнаухов Федор, группа ПИ-261</p>
+            <div class="divider">════════════════════════════════════════</div>
+            <p class="small">Сделано с любовью к эпохе Turbo Pascal</p>
+        </div>
+    </div>
+</body>
+</html>
